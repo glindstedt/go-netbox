@@ -43,6 +43,10 @@ type Site struct {
 	// Minimum: 1
 	Asn *int64 `json:"asn,omitempty"`
 
+	// asns
+	// Unique: true
+	Asns []*NestedASN `json:"asns"`
+
 	// Circuit count
 	// Read Only: true
 	CircuitCount int64 `json:"circuit_count,omitempty"`
@@ -177,6 +181,10 @@ func (m *Site) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateAsns(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateContactEmail(formats); err != nil {
 		res = append(res, err)
 	}
@@ -267,6 +275,34 @@ func (m *Site) validateAsn(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *Site) validateAsns(formats strfmt.Registry) error {
+	if swag.IsZero(m.Asns) { // not required
+		return nil
+	}
+
+	if err := validate.UniqueItems("asns", "body", m.Asns); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.Asns); i++ {
+		if swag.IsZero(m.Asns[i]) { // not required
+			continue
+		}
+
+		if m.Asns[i] != nil {
+			if err := m.Asns[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("asns" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 func (m *Site) validateContactEmail(formats strfmt.Registry) error {
 	if swag.IsZero(m.ContactEmail) { // not required
 		return nil
@@ -352,8 +388,6 @@ func (m *Site) validateGroup(formats strfmt.Registry) error {
 		if err := m.Group.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("group")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("group")
 			}
 			return err
 		}
@@ -412,8 +446,6 @@ func (m *Site) validateRegion(formats strfmt.Registry) error {
 		if err := m.Region.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("region")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("region")
 			}
 			return err
 		}
@@ -464,8 +496,6 @@ func (m *Site) validateStatus(formats strfmt.Registry) error {
 		if err := m.Status.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("status")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("status")
 			}
 			return err
 		}
@@ -488,8 +518,6 @@ func (m *Site) validateTags(formats strfmt.Registry) error {
 			if err := m.Tags[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("tags" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("tags" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -509,8 +537,6 @@ func (m *Site) validateTenant(formats strfmt.Registry) error {
 		if err := m.Tenant.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("tenant")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("tenant")
 			}
 			return err
 		}
@@ -534,6 +560,10 @@ func (m *Site) validateURL(formats strfmt.Registry) error {
 // ContextValidate validate this site based on the context it is used
 func (m *Site) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
+
+	if err := m.contextValidateAsns(ctx, formats); err != nil {
+		res = append(res, err)
+	}
 
 	if err := m.contextValidateCircuitCount(ctx, formats); err != nil {
 		res = append(res, err)
@@ -605,6 +635,24 @@ func (m *Site) ContextValidate(ctx context.Context, formats strfmt.Registry) err
 	return nil
 }
 
+func (m *Site) contextValidateAsns(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Asns); i++ {
+
+		if m.Asns[i] != nil {
+			if err := m.Asns[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("asns" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 func (m *Site) contextValidateCircuitCount(ctx context.Context, formats strfmt.Registry) error {
 
 	if err := validate.ReadOnly(ctx, "circuit_count", "body", int64(m.CircuitCount)); err != nil {
@@ -647,8 +695,6 @@ func (m *Site) contextValidateGroup(ctx context.Context, formats strfmt.Registry
 		if err := m.Group.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("group")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("group")
 			}
 			return err
 		}
@@ -699,8 +745,6 @@ func (m *Site) contextValidateRegion(ctx context.Context, formats strfmt.Registr
 		if err := m.Region.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("region")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("region")
 			}
 			return err
 		}
@@ -715,8 +759,6 @@ func (m *Site) contextValidateStatus(ctx context.Context, formats strfmt.Registr
 		if err := m.Status.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("status")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("status")
 			}
 			return err
 		}
@@ -733,8 +775,6 @@ func (m *Site) contextValidateTags(ctx context.Context, formats strfmt.Registry)
 			if err := m.Tags[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("tags" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("tags" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -751,8 +791,6 @@ func (m *Site) contextValidateTenant(ctx context.Context, formats strfmt.Registr
 		if err := m.Tenant.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("tenant")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("tenant")
 			}
 			return err
 		}

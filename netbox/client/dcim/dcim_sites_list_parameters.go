@@ -93,6 +93,12 @@ type DcimSitesListParams struct {
 	// Asnn.
 	Asnn *string
 
+	// AsnID.
+	AsnID *string
+
+	// AsnIDn.
+	AsnIDn *string
+
 	// ContactEmail.
 	ContactEmail *string
 
@@ -200,6 +206,39 @@ type DcimSitesListParams struct {
 
 	// CreatedLte.
 	CreatedLte *string
+
+	// Description.
+	Description *string
+
+	// DescriptionEmpty.
+	DescriptionEmpty *string
+
+	// DescriptionIc.
+	DescriptionIc *string
+
+	// DescriptionIe.
+	DescriptionIe *string
+
+	// DescriptionIew.
+	DescriptionIew *string
+
+	// DescriptionIsw.
+	DescriptionIsw *string
+
+	// Descriptionn.
+	Descriptionn *string
+
+	// DescriptionNic.
+	DescriptionNic *string
+
+	// DescriptionNie.
+	DescriptionNie *string
+
+	// DescriptionNiew.
+	DescriptionNiew *string
+
+	// DescriptionNisw.
+	DescriptionNisw *string
 
 	// Facility.
 	Facility *string
@@ -555,6 +594,28 @@ func (o *DcimSitesListParams) WithAsnn(asnn *string) *DcimSitesListParams {
 // SetAsnn adds the asnN to the dcim sites list params
 func (o *DcimSitesListParams) SetAsnn(asnn *string) {
 	o.Asnn = asnn
+}
+
+// WithAsnID adds the asnID to the dcim sites list params
+func (o *DcimSitesListParams) WithAsnID(asnID *string) *DcimSitesListParams {
+	o.SetAsnID(asnID)
+	return o
+}
+
+// SetAsnID adds the asnId to the dcim sites list params
+func (o *DcimSitesListParams) SetAsnID(asnID *string) {
+	o.AsnID = asnID
+}
+
+// WithAsnIDn adds the asnIDn to the dcim sites list params
+func (o *DcimSitesListParams) WithAsnIDn(asnIDn *string) *DcimSitesListParams {
+	o.SetAsnIDn(asnIDn)
+	return o
+}
+
+// SetAsnIDn adds the asnIdN to the dcim sites list params
+func (o *DcimSitesListParams) SetAsnIDn(asnIDn *string) {
+	o.AsnIDn = asnIDn
 }
 
 // WithContactEmail adds the contactEmail to the dcim sites list params
@@ -951,6 +1012,127 @@ func (o *DcimSitesListParams) WithCreatedLte(createdLte *string) *DcimSitesListP
 // SetCreatedLte adds the createdLte to the dcim sites list params
 func (o *DcimSitesListParams) SetCreatedLte(createdLte *string) {
 	o.CreatedLte = createdLte
+}
+
+// WithDescription adds the description to the dcim sites list params
+func (o *DcimSitesListParams) WithDescription(description *string) *DcimSitesListParams {
+	o.SetDescription(description)
+	return o
+}
+
+// SetDescription adds the description to the dcim sites list params
+func (o *DcimSitesListParams) SetDescription(description *string) {
+	o.Description = description
+}
+
+// WithDescriptionEmpty adds the descriptionEmpty to the dcim sites list params
+func (o *DcimSitesListParams) WithDescriptionEmpty(descriptionEmpty *string) *DcimSitesListParams {
+	o.SetDescriptionEmpty(descriptionEmpty)
+	return o
+}
+
+// SetDescriptionEmpty adds the descriptionEmpty to the dcim sites list params
+func (o *DcimSitesListParams) SetDescriptionEmpty(descriptionEmpty *string) {
+	o.DescriptionEmpty = descriptionEmpty
+}
+
+// WithDescriptionIc adds the descriptionIc to the dcim sites list params
+func (o *DcimSitesListParams) WithDescriptionIc(descriptionIc *string) *DcimSitesListParams {
+	o.SetDescriptionIc(descriptionIc)
+	return o
+}
+
+// SetDescriptionIc adds the descriptionIc to the dcim sites list params
+func (o *DcimSitesListParams) SetDescriptionIc(descriptionIc *string) {
+	o.DescriptionIc = descriptionIc
+}
+
+// WithDescriptionIe adds the descriptionIe to the dcim sites list params
+func (o *DcimSitesListParams) WithDescriptionIe(descriptionIe *string) *DcimSitesListParams {
+	o.SetDescriptionIe(descriptionIe)
+	return o
+}
+
+// SetDescriptionIe adds the descriptionIe to the dcim sites list params
+func (o *DcimSitesListParams) SetDescriptionIe(descriptionIe *string) {
+	o.DescriptionIe = descriptionIe
+}
+
+// WithDescriptionIew adds the descriptionIew to the dcim sites list params
+func (o *DcimSitesListParams) WithDescriptionIew(descriptionIew *string) *DcimSitesListParams {
+	o.SetDescriptionIew(descriptionIew)
+	return o
+}
+
+// SetDescriptionIew adds the descriptionIew to the dcim sites list params
+func (o *DcimSitesListParams) SetDescriptionIew(descriptionIew *string) {
+	o.DescriptionIew = descriptionIew
+}
+
+// WithDescriptionIsw adds the descriptionIsw to the dcim sites list params
+func (o *DcimSitesListParams) WithDescriptionIsw(descriptionIsw *string) *DcimSitesListParams {
+	o.SetDescriptionIsw(descriptionIsw)
+	return o
+}
+
+// SetDescriptionIsw adds the descriptionIsw to the dcim sites list params
+func (o *DcimSitesListParams) SetDescriptionIsw(descriptionIsw *string) {
+	o.DescriptionIsw = descriptionIsw
+}
+
+// WithDescriptionn adds the descriptionn to the dcim sites list params
+func (o *DcimSitesListParams) WithDescriptionn(descriptionn *string) *DcimSitesListParams {
+	o.SetDescriptionn(descriptionn)
+	return o
+}
+
+// SetDescriptionn adds the descriptionN to the dcim sites list params
+func (o *DcimSitesListParams) SetDescriptionn(descriptionn *string) {
+	o.Descriptionn = descriptionn
+}
+
+// WithDescriptionNic adds the descriptionNic to the dcim sites list params
+func (o *DcimSitesListParams) WithDescriptionNic(descriptionNic *string) *DcimSitesListParams {
+	o.SetDescriptionNic(descriptionNic)
+	return o
+}
+
+// SetDescriptionNic adds the descriptionNic to the dcim sites list params
+func (o *DcimSitesListParams) SetDescriptionNic(descriptionNic *string) {
+	o.DescriptionNic = descriptionNic
+}
+
+// WithDescriptionNie adds the descriptionNie to the dcim sites list params
+func (o *DcimSitesListParams) WithDescriptionNie(descriptionNie *string) *DcimSitesListParams {
+	o.SetDescriptionNie(descriptionNie)
+	return o
+}
+
+// SetDescriptionNie adds the descriptionNie to the dcim sites list params
+func (o *DcimSitesListParams) SetDescriptionNie(descriptionNie *string) {
+	o.DescriptionNie = descriptionNie
+}
+
+// WithDescriptionNiew adds the descriptionNiew to the dcim sites list params
+func (o *DcimSitesListParams) WithDescriptionNiew(descriptionNiew *string) *DcimSitesListParams {
+	o.SetDescriptionNiew(descriptionNiew)
+	return o
+}
+
+// SetDescriptionNiew adds the descriptionNiew to the dcim sites list params
+func (o *DcimSitesListParams) SetDescriptionNiew(descriptionNiew *string) {
+	o.DescriptionNiew = descriptionNiew
+}
+
+// WithDescriptionNisw adds the descriptionNisw to the dcim sites list params
+func (o *DcimSitesListParams) WithDescriptionNisw(descriptionNisw *string) *DcimSitesListParams {
+	o.SetDescriptionNisw(descriptionNisw)
+	return o
+}
+
+// SetDescriptionNisw adds the descriptionNisw to the dcim sites list params
+func (o *DcimSitesListParams) SetDescriptionNisw(descriptionNisw *string) {
+	o.DescriptionNisw = descriptionNisw
 }
 
 // WithFacility adds the facility to the dcim sites list params
@@ -1910,6 +2092,40 @@ func (o *DcimSitesListParams) WriteToRequest(r runtime.ClientRequest, reg strfmt
 		}
 	}
 
+	if o.AsnID != nil {
+
+		// query param asn_id
+		var qrAsnID string
+
+		if o.AsnID != nil {
+			qrAsnID = *o.AsnID
+		}
+		qAsnID := qrAsnID
+		if qAsnID != "" {
+
+			if err := r.SetQueryParam("asn_id", qAsnID); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.AsnIDn != nil {
+
+		// query param asn_id__n
+		var qrAsnIDn string
+
+		if o.AsnIDn != nil {
+			qrAsnIDn = *o.AsnIDn
+		}
+		qAsnIDn := qrAsnIDn
+		if qAsnIDn != "" {
+
+			if err := r.SetQueryParam("asn_id__n", qAsnIDn); err != nil {
+				return err
+			}
+		}
+	}
+
 	if o.ContactEmail != nil {
 
 		// query param contact_email
@@ -2517,6 +2733,193 @@ func (o *DcimSitesListParams) WriteToRequest(r runtime.ClientRequest, reg strfmt
 		if qCreatedLte != "" {
 
 			if err := r.SetQueryParam("created__lte", qCreatedLte); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.Description != nil {
+
+		// query param description
+		var qrDescription string
+
+		if o.Description != nil {
+			qrDescription = *o.Description
+		}
+		qDescription := qrDescription
+		if qDescription != "" {
+
+			if err := r.SetQueryParam("description", qDescription); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.DescriptionEmpty != nil {
+
+		// query param description__empty
+		var qrDescriptionEmpty string
+
+		if o.DescriptionEmpty != nil {
+			qrDescriptionEmpty = *o.DescriptionEmpty
+		}
+		qDescriptionEmpty := qrDescriptionEmpty
+		if qDescriptionEmpty != "" {
+
+			if err := r.SetQueryParam("description__empty", qDescriptionEmpty); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.DescriptionIc != nil {
+
+		// query param description__ic
+		var qrDescriptionIc string
+
+		if o.DescriptionIc != nil {
+			qrDescriptionIc = *o.DescriptionIc
+		}
+		qDescriptionIc := qrDescriptionIc
+		if qDescriptionIc != "" {
+
+			if err := r.SetQueryParam("description__ic", qDescriptionIc); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.DescriptionIe != nil {
+
+		// query param description__ie
+		var qrDescriptionIe string
+
+		if o.DescriptionIe != nil {
+			qrDescriptionIe = *o.DescriptionIe
+		}
+		qDescriptionIe := qrDescriptionIe
+		if qDescriptionIe != "" {
+
+			if err := r.SetQueryParam("description__ie", qDescriptionIe); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.DescriptionIew != nil {
+
+		// query param description__iew
+		var qrDescriptionIew string
+
+		if o.DescriptionIew != nil {
+			qrDescriptionIew = *o.DescriptionIew
+		}
+		qDescriptionIew := qrDescriptionIew
+		if qDescriptionIew != "" {
+
+			if err := r.SetQueryParam("description__iew", qDescriptionIew); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.DescriptionIsw != nil {
+
+		// query param description__isw
+		var qrDescriptionIsw string
+
+		if o.DescriptionIsw != nil {
+			qrDescriptionIsw = *o.DescriptionIsw
+		}
+		qDescriptionIsw := qrDescriptionIsw
+		if qDescriptionIsw != "" {
+
+			if err := r.SetQueryParam("description__isw", qDescriptionIsw); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.Descriptionn != nil {
+
+		// query param description__n
+		var qrDescriptionn string
+
+		if o.Descriptionn != nil {
+			qrDescriptionn = *o.Descriptionn
+		}
+		qDescriptionn := qrDescriptionn
+		if qDescriptionn != "" {
+
+			if err := r.SetQueryParam("description__n", qDescriptionn); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.DescriptionNic != nil {
+
+		// query param description__nic
+		var qrDescriptionNic string
+
+		if o.DescriptionNic != nil {
+			qrDescriptionNic = *o.DescriptionNic
+		}
+		qDescriptionNic := qrDescriptionNic
+		if qDescriptionNic != "" {
+
+			if err := r.SetQueryParam("description__nic", qDescriptionNic); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.DescriptionNie != nil {
+
+		// query param description__nie
+		var qrDescriptionNie string
+
+		if o.DescriptionNie != nil {
+			qrDescriptionNie = *o.DescriptionNie
+		}
+		qDescriptionNie := qrDescriptionNie
+		if qDescriptionNie != "" {
+
+			if err := r.SetQueryParam("description__nie", qDescriptionNie); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.DescriptionNiew != nil {
+
+		// query param description__niew
+		var qrDescriptionNiew string
+
+		if o.DescriptionNiew != nil {
+			qrDescriptionNiew = *o.DescriptionNiew
+		}
+		qDescriptionNiew := qrDescriptionNiew
+		if qDescriptionNiew != "" {
+
+			if err := r.SetQueryParam("description__niew", qDescriptionNiew); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.DescriptionNisw != nil {
+
+		// query param description__nisw
+		var qrDescriptionNisw string
+
+		if o.DescriptionNisw != nil {
+			qrDescriptionNisw = *o.DescriptionNisw
+		}
+		qDescriptionNisw := qrDescriptionNisw
+		if qDescriptionNisw != "" {
+
+			if err := r.SetQueryParam("description__nisw", qDescriptionNisw); err != nil {
 				return err
 			}
 		}

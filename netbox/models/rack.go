@@ -67,8 +67,6 @@ type Rack struct {
 	Display string `json:"display,omitempty"`
 
 	// Facility ID
-	//
-	// Locally-assigned identifier
 	// Max Length: 50
 	FacilityID *string `json:"facility_id,omitempty"`
 
@@ -293,8 +291,6 @@ func (m *Rack) validateLocation(formats strfmt.Registry) error {
 		if err := m.Location.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("location")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("location")
 			}
 			return err
 		}
@@ -345,8 +341,6 @@ func (m *Rack) validateOuterUnit(formats strfmt.Registry) error {
 		if err := m.OuterUnit.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("outer_unit")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("outer_unit")
 			}
 			return err
 		}
@@ -380,8 +374,6 @@ func (m *Rack) validateRole(formats strfmt.Registry) error {
 		if err := m.Role.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("role")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("role")
 			}
 			return err
 		}
@@ -412,8 +404,6 @@ func (m *Rack) validateSite(formats strfmt.Registry) error {
 		if err := m.Site.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("site")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("site")
 			}
 			return err
 		}
@@ -431,8 +421,6 @@ func (m *Rack) validateStatus(formats strfmt.Registry) error {
 		if err := m.Status.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("status")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("status")
 			}
 			return err
 		}
@@ -455,8 +443,6 @@ func (m *Rack) validateTags(formats strfmt.Registry) error {
 			if err := m.Tags[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("tags" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("tags" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -476,8 +462,6 @@ func (m *Rack) validateTenant(formats strfmt.Registry) error {
 		if err := m.Tenant.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("tenant")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("tenant")
 			}
 			return err
 		}
@@ -495,8 +479,6 @@ func (m *Rack) validateType(formats strfmt.Registry) error {
 		if err := m.Type.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("type")
 			}
 			return err
 		}
@@ -542,8 +524,6 @@ func (m *Rack) validateWidth(formats strfmt.Registry) error {
 		if err := m.Width.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("width")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("width")
 			}
 			return err
 		}
@@ -677,8 +657,6 @@ func (m *Rack) contextValidateLocation(ctx context.Context, formats strfmt.Regis
 		if err := m.Location.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("location")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("location")
 			}
 			return err
 		}
@@ -693,8 +671,6 @@ func (m *Rack) contextValidateOuterUnit(ctx context.Context, formats strfmt.Regi
 		if err := m.OuterUnit.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("outer_unit")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("outer_unit")
 			}
 			return err
 		}
@@ -718,8 +694,6 @@ func (m *Rack) contextValidateRole(ctx context.Context, formats strfmt.Registry)
 		if err := m.Role.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("role")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("role")
 			}
 			return err
 		}
@@ -734,8 +708,6 @@ func (m *Rack) contextValidateSite(ctx context.Context, formats strfmt.Registry)
 		if err := m.Site.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("site")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("site")
 			}
 			return err
 		}
@@ -750,8 +722,6 @@ func (m *Rack) contextValidateStatus(ctx context.Context, formats strfmt.Registr
 		if err := m.Status.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("status")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("status")
 			}
 			return err
 		}
@@ -768,8 +738,6 @@ func (m *Rack) contextValidateTags(ctx context.Context, formats strfmt.Registry)
 			if err := m.Tags[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("tags" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("tags" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -786,8 +754,6 @@ func (m *Rack) contextValidateTenant(ctx context.Context, formats strfmt.Registr
 		if err := m.Tenant.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("tenant")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("tenant")
 			}
 			return err
 		}
@@ -802,8 +768,6 @@ func (m *Rack) contextValidateType(ctx context.Context, formats strfmt.Registry)
 		if err := m.Type.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("type")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("type")
 			}
 			return err
 		}
@@ -827,8 +791,6 @@ func (m *Rack) contextValidateWidth(ctx context.Context, formats strfmt.Registry
 		if err := m.Width.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("width")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("width")
 			}
 			return err
 		}
