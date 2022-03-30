@@ -126,6 +126,18 @@ type CircuitsCircuitsListParams struct {
 	// CommitRaten.
 	CommitRaten *string
 
+	// Contact.
+	Contact *string
+
+	// Contactn.
+	Contactn *string
+
+	// ContactRole.
+	ContactRole *string
+
+	// ContactRolen.
+	ContactRolen *string
+
 	// Created.
 	Created *string
 
@@ -568,6 +580,50 @@ func (o *CircuitsCircuitsListParams) WithCommitRaten(commitRaten *string) *Circu
 // SetCommitRaten adds the commitRateN to the circuits circuits list params
 func (o *CircuitsCircuitsListParams) SetCommitRaten(commitRaten *string) {
 	o.CommitRaten = commitRaten
+}
+
+// WithContact adds the contact to the circuits circuits list params
+func (o *CircuitsCircuitsListParams) WithContact(contact *string) *CircuitsCircuitsListParams {
+	o.SetContact(contact)
+	return o
+}
+
+// SetContact adds the contact to the circuits circuits list params
+func (o *CircuitsCircuitsListParams) SetContact(contact *string) {
+	o.Contact = contact
+}
+
+// WithContactn adds the contactn to the circuits circuits list params
+func (o *CircuitsCircuitsListParams) WithContactn(contactn *string) *CircuitsCircuitsListParams {
+	o.SetContactn(contactn)
+	return o
+}
+
+// SetContactn adds the contactN to the circuits circuits list params
+func (o *CircuitsCircuitsListParams) SetContactn(contactn *string) {
+	o.Contactn = contactn
+}
+
+// WithContactRole adds the contactRole to the circuits circuits list params
+func (o *CircuitsCircuitsListParams) WithContactRole(contactRole *string) *CircuitsCircuitsListParams {
+	o.SetContactRole(contactRole)
+	return o
+}
+
+// SetContactRole adds the contactRole to the circuits circuits list params
+func (o *CircuitsCircuitsListParams) SetContactRole(contactRole *string) {
+	o.ContactRole = contactRole
+}
+
+// WithContactRolen adds the contactRolen to the circuits circuits list params
+func (o *CircuitsCircuitsListParams) WithContactRolen(contactRolen *string) *CircuitsCircuitsListParams {
+	o.SetContactRolen(contactRolen)
+	return o
+}
+
+// SetContactRolen adds the contactRoleN to the circuits circuits list params
+func (o *CircuitsCircuitsListParams) SetContactRolen(contactRolen *string) {
+	o.ContactRolen = contactRolen
 }
 
 // WithCreated adds the created to the circuits circuits list params
@@ -1588,6 +1644,74 @@ func (o *CircuitsCircuitsListParams) WriteToRequest(r runtime.ClientRequest, reg
 		if qCommitRaten != "" {
 
 			if err := r.SetQueryParam("commit_rate__n", qCommitRaten); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.Contact != nil {
+
+		// query param contact
+		var qrContact string
+
+		if o.Contact != nil {
+			qrContact = *o.Contact
+		}
+		qContact := qrContact
+		if qContact != "" {
+
+			if err := r.SetQueryParam("contact", qContact); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.Contactn != nil {
+
+		// query param contact__n
+		var qrContactn string
+
+		if o.Contactn != nil {
+			qrContactn = *o.Contactn
+		}
+		qContactn := qrContactn
+		if qContactn != "" {
+
+			if err := r.SetQueryParam("contact__n", qContactn); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.ContactRole != nil {
+
+		// query param contact_role
+		var qrContactRole string
+
+		if o.ContactRole != nil {
+			qrContactRole = *o.ContactRole
+		}
+		qContactRole := qrContactRole
+		if qContactRole != "" {
+
+			if err := r.SetQueryParam("contact_role", qContactRole); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.ContactRolen != nil {
+
+		// query param contact_role__n
+		var qrContactRolen string
+
+		if o.ContactRolen != nil {
+			qrContactRolen = *o.ContactRolen
+		}
+		qContactRolen := qrContactRolen
+		if qContactRolen != "" {
+
+			if err := r.SetQueryParam("contact_role__n", qContactRolen); err != nil {
 				return err
 			}
 		}

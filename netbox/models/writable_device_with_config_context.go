@@ -36,6 +36,10 @@ import (
 // swagger:model WritableDeviceWithConfigContext
 type WritableDeviceWithConfigContext struct {
 
+	// Airflow
+	// Enum: [front-to-rear rear-to-front left-to-right right-to-left side-to-rear passive]
+	Airflow string `json:"airflow,omitempty"`
+
 	// Asset tag
 	//
 	// A unique tag used to identify this device
@@ -164,6 +168,10 @@ type WritableDeviceWithConfigContext struct {
 func (m *WritableDeviceWithConfigContext) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateAirflow(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateAssetTag(formats); err != nil {
 		res = append(res, err)
 	}
@@ -243,6 +251,60 @@ func (m *WritableDeviceWithConfigContext) Validate(formats strfmt.Registry) erro
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+var writableDeviceWithConfigContextTypeAirflowPropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["front-to-rear","rear-to-front","left-to-right","right-to-left","side-to-rear","passive"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		writableDeviceWithConfigContextTypeAirflowPropEnum = append(writableDeviceWithConfigContextTypeAirflowPropEnum, v)
+	}
+}
+
+const (
+
+	// WritableDeviceWithConfigContextAirflowFrontDashToDashRear captures enum value "front-to-rear"
+	WritableDeviceWithConfigContextAirflowFrontDashToDashRear string = "front-to-rear"
+
+	// WritableDeviceWithConfigContextAirflowRearDashToDashFront captures enum value "rear-to-front"
+	WritableDeviceWithConfigContextAirflowRearDashToDashFront string = "rear-to-front"
+
+	// WritableDeviceWithConfigContextAirflowLeftDashToDashRight captures enum value "left-to-right"
+	WritableDeviceWithConfigContextAirflowLeftDashToDashRight string = "left-to-right"
+
+	// WritableDeviceWithConfigContextAirflowRightDashToDashLeft captures enum value "right-to-left"
+	WritableDeviceWithConfigContextAirflowRightDashToDashLeft string = "right-to-left"
+
+	// WritableDeviceWithConfigContextAirflowSideDashToDashRear captures enum value "side-to-rear"
+	WritableDeviceWithConfigContextAirflowSideDashToDashRear string = "side-to-rear"
+
+	// WritableDeviceWithConfigContextAirflowPassive captures enum value "passive"
+	WritableDeviceWithConfigContextAirflowPassive string = "passive"
+)
+
+// prop value enum
+func (m *WritableDeviceWithConfigContext) validateAirflowEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, writableDeviceWithConfigContextTypeAirflowPropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *WritableDeviceWithConfigContext) validateAirflow(formats strfmt.Registry) error {
+	if swag.IsZero(m.Airflow) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateAirflowEnum("airflow", "body", m.Airflow); err != nil {
+		return err
+	}
+
 	return nil
 }
 

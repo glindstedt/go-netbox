@@ -75,6 +75,18 @@ func NewDcimRegionsListParamsWithHTTPClient(client *http.Client) *DcimRegionsLis
 */
 type DcimRegionsListParams struct {
 
+	// Contact.
+	Contact *string
+
+	// Contactn.
+	Contactn *string
+
+	// ContactRole.
+	ContactRole *string
+
+	// ContactRolen.
+	ContactRolen *string
+
 	// Created.
 	Created *string
 
@@ -294,6 +306,50 @@ func (o *DcimRegionsListParams) WithHTTPClient(client *http.Client) *DcimRegions
 // SetHTTPClient adds the HTTPClient to the dcim regions list params
 func (o *DcimRegionsListParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
+}
+
+// WithContact adds the contact to the dcim regions list params
+func (o *DcimRegionsListParams) WithContact(contact *string) *DcimRegionsListParams {
+	o.SetContact(contact)
+	return o
+}
+
+// SetContact adds the contact to the dcim regions list params
+func (o *DcimRegionsListParams) SetContact(contact *string) {
+	o.Contact = contact
+}
+
+// WithContactn adds the contactn to the dcim regions list params
+func (o *DcimRegionsListParams) WithContactn(contactn *string) *DcimRegionsListParams {
+	o.SetContactn(contactn)
+	return o
+}
+
+// SetContactn adds the contactN to the dcim regions list params
+func (o *DcimRegionsListParams) SetContactn(contactn *string) {
+	o.Contactn = contactn
+}
+
+// WithContactRole adds the contactRole to the dcim regions list params
+func (o *DcimRegionsListParams) WithContactRole(contactRole *string) *DcimRegionsListParams {
+	o.SetContactRole(contactRole)
+	return o
+}
+
+// SetContactRole adds the contactRole to the dcim regions list params
+func (o *DcimRegionsListParams) SetContactRole(contactRole *string) {
+	o.ContactRole = contactRole
+}
+
+// WithContactRolen adds the contactRolen to the dcim regions list params
+func (o *DcimRegionsListParams) WithContactRolen(contactRolen *string) *DcimRegionsListParams {
+	o.SetContactRolen(contactRolen)
+	return o
+}
+
+// SetContactRolen adds the contactRoleN to the dcim regions list params
+func (o *DcimRegionsListParams) SetContactRolen(contactRolen *string) {
+	o.ContactRolen = contactRolen
 }
 
 // WithCreated adds the created to the dcim regions list params
@@ -897,6 +953,74 @@ func (o *DcimRegionsListParams) WriteToRequest(r runtime.ClientRequest, reg strf
 		return err
 	}
 	var res []error
+
+	if o.Contact != nil {
+
+		// query param contact
+		var qrContact string
+
+		if o.Contact != nil {
+			qrContact = *o.Contact
+		}
+		qContact := qrContact
+		if qContact != "" {
+
+			if err := r.SetQueryParam("contact", qContact); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.Contactn != nil {
+
+		// query param contact__n
+		var qrContactn string
+
+		if o.Contactn != nil {
+			qrContactn = *o.Contactn
+		}
+		qContactn := qrContactn
+		if qContactn != "" {
+
+			if err := r.SetQueryParam("contact__n", qContactn); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.ContactRole != nil {
+
+		// query param contact_role
+		var qrContactRole string
+
+		if o.ContactRole != nil {
+			qrContactRole = *o.ContactRole
+		}
+		qContactRole := qrContactRole
+		if qContactRole != "" {
+
+			if err := r.SetQueryParam("contact_role", qContactRole); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.ContactRolen != nil {
+
+		// query param contact_role__n
+		var qrContactRolen string
+
+		if o.ContactRolen != nil {
+			qrContactRolen = *o.ContactRolen
+		}
+		qContactRolen := qrContactRolen
+		if qContactRolen != "" {
+
+			if err := r.SetQueryParam("contact_role__n", qContactRolen); err != nil {
+				return err
+			}
+		}
+	}
 
 	if o.Created != nil {
 

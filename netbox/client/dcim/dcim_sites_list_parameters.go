@@ -99,6 +99,12 @@ type DcimSitesListParams struct {
 	// AsnIDn.
 	AsnIDn *string
 
+	// Contact.
+	Contact *string
+
+	// Contactn.
+	Contactn *string
+
 	// ContactEmail.
 	ContactEmail *string
 
@@ -197,6 +203,12 @@ type DcimSitesListParams struct {
 
 	// ContactPhoneNisw.
 	ContactPhoneNisw *string
+
+	// ContactRole.
+	ContactRole *string
+
+	// ContactRolen.
+	ContactRolen *string
 
 	// Created.
 	Created *string
@@ -618,6 +630,28 @@ func (o *DcimSitesListParams) SetAsnIDn(asnIDn *string) {
 	o.AsnIDn = asnIDn
 }
 
+// WithContact adds the contact to the dcim sites list params
+func (o *DcimSitesListParams) WithContact(contact *string) *DcimSitesListParams {
+	o.SetContact(contact)
+	return o
+}
+
+// SetContact adds the contact to the dcim sites list params
+func (o *DcimSitesListParams) SetContact(contact *string) {
+	o.Contact = contact
+}
+
+// WithContactn adds the contactn to the dcim sites list params
+func (o *DcimSitesListParams) WithContactn(contactn *string) *DcimSitesListParams {
+	o.SetContactn(contactn)
+	return o
+}
+
+// SetContactn adds the contactN to the dcim sites list params
+func (o *DcimSitesListParams) SetContactn(contactn *string) {
+	o.Contactn = contactn
+}
+
 // WithContactEmail adds the contactEmail to the dcim sites list params
 func (o *DcimSitesListParams) WithContactEmail(contactEmail *string) *DcimSitesListParams {
 	o.SetContactEmail(contactEmail)
@@ -979,6 +1013,28 @@ func (o *DcimSitesListParams) WithContactPhoneNisw(contactPhoneNisw *string) *Dc
 // SetContactPhoneNisw adds the contactPhoneNisw to the dcim sites list params
 func (o *DcimSitesListParams) SetContactPhoneNisw(contactPhoneNisw *string) {
 	o.ContactPhoneNisw = contactPhoneNisw
+}
+
+// WithContactRole adds the contactRole to the dcim sites list params
+func (o *DcimSitesListParams) WithContactRole(contactRole *string) *DcimSitesListParams {
+	o.SetContactRole(contactRole)
+	return o
+}
+
+// SetContactRole adds the contactRole to the dcim sites list params
+func (o *DcimSitesListParams) SetContactRole(contactRole *string) {
+	o.ContactRole = contactRole
+}
+
+// WithContactRolen adds the contactRolen to the dcim sites list params
+func (o *DcimSitesListParams) WithContactRolen(contactRolen *string) *DcimSitesListParams {
+	o.SetContactRolen(contactRolen)
+	return o
+}
+
+// SetContactRolen adds the contactRoleN to the dcim sites list params
+func (o *DcimSitesListParams) SetContactRolen(contactRolen *string) {
+	o.ContactRolen = contactRolen
 }
 
 // WithCreated adds the created to the dcim sites list params
@@ -2126,6 +2182,40 @@ func (o *DcimSitesListParams) WriteToRequest(r runtime.ClientRequest, reg strfmt
 		}
 	}
 
+	if o.Contact != nil {
+
+		// query param contact
+		var qrContact string
+
+		if o.Contact != nil {
+			qrContact = *o.Contact
+		}
+		qContact := qrContact
+		if qContact != "" {
+
+			if err := r.SetQueryParam("contact", qContact); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.Contactn != nil {
+
+		// query param contact__n
+		var qrContactn string
+
+		if o.Contactn != nil {
+			qrContactn = *o.Contactn
+		}
+		qContactn := qrContactn
+		if qContactn != "" {
+
+			if err := r.SetQueryParam("contact__n", qContactn); err != nil {
+				return err
+			}
+		}
+	}
+
 	if o.ContactEmail != nil {
 
 		// query param contact_email
@@ -2682,6 +2772,40 @@ func (o *DcimSitesListParams) WriteToRequest(r runtime.ClientRequest, reg strfmt
 		if qContactPhoneNisw != "" {
 
 			if err := r.SetQueryParam("contact_phone__nisw", qContactPhoneNisw); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.ContactRole != nil {
+
+		// query param contact_role
+		var qrContactRole string
+
+		if o.ContactRole != nil {
+			qrContactRole = *o.ContactRole
+		}
+		qContactRole := qrContactRole
+		if qContactRole != "" {
+
+			if err := r.SetQueryParam("contact_role", qContactRole); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.ContactRolen != nil {
+
+		// query param contact_role__n
+		var qrContactRolen string
+
+		if o.ContactRolen != nil {
+			qrContactRolen = *o.ContactRolen
+		}
+		qContactRolen := qrContactRolen
+		if qContactRolen != "" {
+
+			if err := r.SetQueryParam("contact_role__n", qContactRolen); err != nil {
 				return err
 			}
 		}

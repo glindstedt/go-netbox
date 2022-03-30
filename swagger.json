@@ -1387,6 +1387,20 @@
             "type": "string"
           },
           {
+            "name": "contact",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "contact_role",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
             "name": "q",
             "in": "query",
             "description": "",
@@ -1752,6 +1766,20 @@
           },
           {
             "name": "tenant__n",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "contact__n",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "contact_role__n",
             "in": "query",
             "description": "",
             "required": false,
@@ -2687,6 +2715,20 @@
             "type": "string"
           },
           {
+            "name": "contact",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "contact_role",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
             "name": "q",
             "in": "query",
             "description": "",
@@ -3017,6 +3059,20 @@
           },
           {
             "name": "account__empty",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "contact__n",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "contact_role__n",
             "in": "query",
             "description": "",
             "required": false,
@@ -9198,6 +9254,20 @@
             "type": "string"
           },
           {
+            "name": "contact",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "contact_role",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
             "name": "local_context_data",
             "in": "query",
             "description": "",
@@ -9752,6 +9822,20 @@
           },
           {
             "name": "tenant__n",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "contact__n",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "contact_role__n",
             "in": "query",
             "description": "",
             "required": false,
@@ -14187,6 +14271,20 @@
             "type": "string"
           },
           {
+            "name": "contact",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "contact_role",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
             "name": "created",
             "in": "query",
             "description": "",
@@ -14572,6 +14670,20 @@
             "type": "string"
           },
           {
+            "name": "contact__n",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "contact_role__n",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
             "name": "region_id__n",
             "in": "query",
             "description": "",
@@ -14949,6 +15061,20 @@
             "type": "string"
           },
           {
+            "name": "contact",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "contact_role",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
             "name": "tag",
             "in": "query",
             "description": "",
@@ -15195,6 +15321,20 @@
           },
           {
             "name": "description__empty",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "contact__n",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "contact_role__n",
             "in": "query",
             "description": "",
             "required": false,
@@ -18190,6 +18330,20 @@
             "type": "string"
           },
           {
+            "name": "contact",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "contact_role",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
             "name": "q",
             "in": "query",
             "description": "",
@@ -18352,6 +18506,20 @@
           },
           {
             "name": "name__empty",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "contact__n",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "contact_role__n",
             "in": "query",
             "description": "",
             "required": false,
@@ -21404,6 +21572,20 @@
             "type": "string"
           },
           {
+            "name": "contact",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "contact_role",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
             "name": "q",
             "in": "query",
             "description": "",
@@ -21895,6 +22077,20 @@
           },
           {
             "name": "tenant__n",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "contact__n",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "contact_role__n",
             "in": "query",
             "description": "",
             "required": false,
@@ -23874,6 +24070,20 @@
             "type": "string"
           },
           {
+            "name": "contact",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "contact_role",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
             "name": "parent_id",
             "in": "query",
             "description": "",
@@ -24134,6 +24344,20 @@
           },
           {
             "name": "description__empty",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "contact__n",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "contact_role__n",
             "in": "query",
             "description": "",
             "required": false,
@@ -24475,6 +24699,20 @@
             "type": "string"
           },
           {
+            "name": "contact",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "contact_role",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
             "name": "parent_id",
             "in": "query",
             "description": "",
@@ -24735,6 +24973,20 @@
           },
           {
             "name": "description__empty",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "contact__n",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "contact_role__n",
             "in": "query",
             "description": "",
             "required": false,
@@ -25140,6 +25392,20 @@
           },
           {
             "name": "tenant",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "contact",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "contact_role",
             "in": "query",
             "description": "",
             "required": false,
@@ -25854,6 +26120,20 @@
           },
           {
             "name": "tenant__n",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "contact__n",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "contact_role__n",
             "in": "query",
             "description": "",
             "required": false,
@@ -44279,6 +44559,20 @@
             "type": "string"
           },
           {
+            "name": "contact",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "contact_role",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
             "name": "q",
             "in": "query",
             "description": "",
@@ -44546,6 +44840,20 @@
           },
           {
             "name": "description__empty",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "contact__n",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "contact_role__n",
             "in": "query",
             "description": "",
             "required": false,
@@ -46952,6 +47260,20 @@
             "type": "string"
           },
           {
+            "name": "contact",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "contact_role",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
             "name": "tag",
             "in": "query",
             "description": "",
@@ -47198,6 +47520,20 @@
           },
           {
             "name": "description__empty",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "contact__n",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "contact_role__n",
             "in": "query",
             "description": "",
             "required": false,
@@ -48105,6 +48441,20 @@
             "type": "string"
           },
           {
+            "name": "contact",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "contact_role",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
             "name": "q",
             "in": "query",
             "description": "",
@@ -48316,6 +48666,20 @@
           },
           {
             "name": "tenant__n",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "contact__n",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "contact_role__n",
             "in": "query",
             "description": "",
             "required": false,
@@ -49447,6 +49811,20 @@
             "type": "string"
           },
           {
+            "name": "contact",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "contact_role",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
             "name": "local_context_data",
             "in": "query",
             "description": "",
@@ -49833,6 +50211,20 @@
           },
           {
             "name": "tenant__n",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "contact__n",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "contact_role__n",
             "in": "query",
             "description": "",
             "required": false,
@@ -56165,6 +56557,38 @@
             }
           }
         },
+        "airflow": {
+          "title": "Airflow",
+          "required": [
+            "label",
+            "value"
+          ],
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": "string",
+              "enum": [
+                "Front to rear",
+                "Rear to front",
+                "Left to right",
+                "Right to left",
+                "Side to rear",
+                "Passive"
+              ]
+            },
+            "value": {
+              "type": "string",
+              "enum": [
+                "front-to-rear",
+                "rear-to-front",
+                "left-to-right",
+                "right-to-left",
+                "side-to-rear",
+                "passive"
+              ]
+            }
+          }
+        },
         "primary_ip": {
           "$ref": "#/definitions/NestedIPAddress"
         },
@@ -56344,6 +56768,18 @@
             "failed",
             "inventory",
             "decommissioning"
+          ]
+        },
+        "airflow": {
+          "title": "Airflow",
+          "type": "string",
+          "enum": [
+            "front-to-rear",
+            "rear-to-front",
+            "left-to-right",
+            "right-to-left",
+            "side-to-rear",
+            "passive"
           ]
         },
         "primary_ip": {
@@ -58038,8 +58474,7 @@
                 "station"
               ]
             }
-          },
-          "x-nullable": true
+          }
         },
         "rf_channel": {
           "title": "Rf channel",
