@@ -93,7 +93,7 @@ data["paths"]["/status/"]["get"]["responses"]["200"]["schema"] = {
 }
 logging.info(f"Added schema for 200 response of /status/ get")
 
-# change model IPAddress's assigned_object property from string to object otherwise it fails to unmarshall
+# Change model IPAddress's assigned_object property from string to object otherwise it fails to unmarshall
 data["definitions"]["IPAddress"]["properties"]["assigned_object"] = {
     "title": "Assigned object",
     "type": "object",
@@ -102,11 +102,26 @@ data["definitions"]["IPAddress"]["properties"]["assigned_object"] = {
 logging.info(f"Fix 'error: json: cannot unmarshal number into Go struct field IPAddress.assigned_object of type \
 string' when creating available-ips")
 
+# Change model expected by paths /available-ips/ from WritableAvailableIP to AvailableIP and add array type
+data["paths"]["/ipam/ip-ranges/{id}/available-ips/"]["post"]["parameters"][0]["schema"] = {
+  "type": "array",
+  "items": {
+    "$ref": "#/definitions/AvailableIP"
+  }
+}
+data["paths"]["/ipam/prefixes/{id}/available-ips/"]["post"]["parameters"][0]["schema"] = {
+  "type": "array",
+  "items": {
+    "$ref": "#/definitions/AvailableIP"
+  }
+}
+logging.info(f"Corrected request model when creating available-ips in an IP range")
+
 # Change model returned by paths /available-ips/ from AvailableIP to IPAddress.
 data["paths"]["/ipam/ip-ranges/{id}/available-ips/"]["post"]["responses"]["201"]["schema"]["items"] = {
     "$ref": "#/definitions/IPAddress"
 }
-logging.info(f"Corrected reponse model when creating available-ips in an IP range")
+logging.info(f"Corrected response model when creating available-ips in an IP range")
 
 data["paths"]["/ipam/prefixes/{id}/available-ips/"]["post"]["responses"]["201"]["schema"]["items"] = {
     "$ref": "#/definitions/IPAddress"

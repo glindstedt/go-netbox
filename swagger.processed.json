@@ -39470,7 +39470,10 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/WritableAvailableIP"
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/AvailableIP"
+              }
             }
           }
         ],
@@ -40458,7 +40461,10 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/WritableAvailableIP"
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/AvailableIP"
+              }
             }
           }
         ],
