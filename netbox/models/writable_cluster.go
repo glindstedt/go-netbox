@@ -55,7 +55,8 @@ type WritableCluster struct {
 	Display string `json:"display,omitempty"`
 
 	// Group
-	Group *int64 `json:"group,omitempty"`
+	// Required: true
+	Group *int64 `json:"group"`
 
 	// Id
 	// Read Only: true
@@ -73,6 +74,7 @@ type WritableCluster struct {
 	Name *string `json:"name"`
 
 	// Site
+	// Required: true
 	Site *int64 `json:"site"`
 
 	// tags
@@ -103,11 +105,19 @@ func (m *WritableCluster) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateGroup(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateLastUpdated(formats); err != nil {
 		res = append(res, err)
 	}
 
 	if err := m.validateName(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSite(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -135,6 +145,15 @@ func (m *WritableCluster) validateCreated(formats strfmt.Registry) error {
 	}
 
 	if err := validate.FormatOf("created", "body", "date", m.Created.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *WritableCluster) validateGroup(formats strfmt.Registry) error {
+
+	if err := validate.Required("group", "body", m.Group); err != nil {
 		return err
 	}
 
@@ -170,6 +189,15 @@ func (m *WritableCluster) validateName(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *WritableCluster) validateSite(formats strfmt.Registry) error {
+
+	if err := validate.Required("site", "body", m.Site); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *WritableCluster) validateTags(formats strfmt.Registry) error {
 	if swag.IsZero(m.Tags) { // not required
 		return nil
@@ -184,8 +212,6 @@ func (m *WritableCluster) validateTags(formats strfmt.Registry) error {
 			if err := m.Tags[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("tags" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("tags" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -312,8 +338,6 @@ func (m *WritableCluster) contextValidateTags(ctx context.Context, formats strfm
 			if err := m.Tags[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("tags" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("tags" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
