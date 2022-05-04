@@ -140,6 +140,12 @@ for prop, prop_spec in data["definitions"]["Tag"]["properties"].items():
         prop_spec["x-omitempty"] = False
         logging.info(f"set x-omitempty = false on Tag.{prop}")
 
+# Revert giant numbers
+for _, def_spec in data["definitions"].items():
+    for prop, prop_spec in def_spec["properties"].items():
+        if ("type" in prop_spec and "maximum" in prop_spec) and (prop_spec["type"] == "integer" and prop_spec["maximum"] == 9223372036854776000):
+            prop_spec["maximum"] = 2147483647
+
 # Write output file
 with open("swagger.processed.json", "w") as writefile:
     json.dump(data, writefile, indent=2)
