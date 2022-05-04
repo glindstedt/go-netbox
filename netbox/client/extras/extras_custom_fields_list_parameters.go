@@ -108,9 +108,6 @@ type ExtrasCustomFieldsListParams struct {
 	// Description.
 	Description *string
 
-	// DescriptionEmpty.
-	DescriptionEmpty *string
-
 	// DescriptionIc.
 	DescriptionIc *string
 
@@ -170,9 +167,6 @@ type ExtrasCustomFieldsListParams struct {
 
 	// Name.
 	Name *string
-
-	// NameEmpty.
-	NameEmpty *string
 
 	// NameIc.
 	NameIc *string
@@ -405,17 +399,6 @@ func (o *ExtrasCustomFieldsListParams) SetDescription(description *string) {
 	o.Description = description
 }
 
-// WithDescriptionEmpty adds the descriptionEmpty to the extras custom fields list params
-func (o *ExtrasCustomFieldsListParams) WithDescriptionEmpty(descriptionEmpty *string) *ExtrasCustomFieldsListParams {
-	o.SetDescriptionEmpty(descriptionEmpty)
-	return o
-}
-
-// SetDescriptionEmpty adds the descriptionEmpty to the extras custom fields list params
-func (o *ExtrasCustomFieldsListParams) SetDescriptionEmpty(descriptionEmpty *string) {
-	o.DescriptionEmpty = descriptionEmpty
-}
-
 // WithDescriptionIc adds the descriptionIc to the extras custom fields list params
 func (o *ExtrasCustomFieldsListParams) WithDescriptionIc(descriptionIc *string) *ExtrasCustomFieldsListParams {
 	o.SetDescriptionIc(descriptionIc)
@@ -623,17 +606,6 @@ func (o *ExtrasCustomFieldsListParams) WithName(name *string) *ExtrasCustomField
 // SetName adds the name to the extras custom fields list params
 func (o *ExtrasCustomFieldsListParams) SetName(name *string) {
 	o.Name = name
-}
-
-// WithNameEmpty adds the nameEmpty to the extras custom fields list params
-func (o *ExtrasCustomFieldsListParams) WithNameEmpty(nameEmpty *string) *ExtrasCustomFieldsListParams {
-	o.SetNameEmpty(nameEmpty)
-	return o
-}
-
-// SetNameEmpty adds the nameEmpty to the extras custom fields list params
-func (o *ExtrasCustomFieldsListParams) SetNameEmpty(nameEmpty *string) {
-	o.NameEmpty = nameEmpty
 }
 
 // WithNameIc adds the nameIc to the extras custom fields list params
@@ -1029,23 +1001,6 @@ func (o *ExtrasCustomFieldsListParams) WriteToRequest(r runtime.ClientRequest, r
 		}
 	}
 
-	if o.DescriptionEmpty != nil {
-
-		// query param description__empty
-		var qrDescriptionEmpty string
-
-		if o.DescriptionEmpty != nil {
-			qrDescriptionEmpty = *o.DescriptionEmpty
-		}
-		qDescriptionEmpty := qrDescriptionEmpty
-		if qDescriptionEmpty != "" {
-
-			if err := r.SetQueryParam("description__empty", qDescriptionEmpty); err != nil {
-				return err
-			}
-		}
-	}
-
 	if o.DescriptionIc != nil {
 
 		// query param description__ic
@@ -1364,23 +1319,6 @@ func (o *ExtrasCustomFieldsListParams) WriteToRequest(r runtime.ClientRequest, r
 		if qName != "" {
 
 			if err := r.SetQueryParam("name", qName); err != nil {
-				return err
-			}
-		}
-	}
-
-	if o.NameEmpty != nil {
-
-		// query param name__empty
-		var qrNameEmpty string
-
-		if o.NameEmpty != nil {
-			qrNameEmpty = *o.NameEmpty
-		}
-		qNameEmpty := qrNameEmpty
-		if qNameEmpty != "" {
-
-			if err := r.SetQueryParam("name__empty", qNameEmpty); err != nil {
 				return err
 			}
 		}

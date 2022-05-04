@@ -46,8 +46,8 @@ type FHRPGroup struct {
 
 	// Created
 	// Read Only: true
-	// Format: date
-	Created strfmt.Date `json:"created,omitempty"`
+	// Format: date-time
+	Created strfmt.DateTime `json:"created,omitempty"`
 
 	// Custom fields
 	CustomFields interface{} `json:"custom_fields,omitempty"`
@@ -66,7 +66,7 @@ type FHRPGroup struct {
 	// Minimum: 0
 	GroupID *int64 `json:"group_id"`
 
-	// Id
+	// ID
 	// Read Only: true
 	ID int64 `json:"id,omitempty"`
 
@@ -81,7 +81,7 @@ type FHRPGroup struct {
 
 	// Protocol
 	// Required: true
-	// Enum: [vrrp2 vrrp3 hsrp glbp carp other]
+	// Enum: [vrrp2 vrrp3 carp clusterxl hsrp glbp other]
 	Protocol *string `json:"protocol"`
 
 	// tags
@@ -202,7 +202,7 @@ func (m *FHRPGroup) validateCreated(formats strfmt.Registry) error {
 		return nil
 	}
 
-	if err := validate.FormatOf("created", "body", "date", m.Created.String(), formats); err != nil {
+	if err := validate.FormatOf("created", "body", "date-time", m.Created.String(), formats); err != nil {
 		return err
 	}
 
@@ -278,7 +278,7 @@ var fHRPGroupTypeProtocolPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["vrrp2","vrrp3","hsrp","glbp","carp","other"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["vrrp2","vrrp3","carp","clusterxl","hsrp","glbp","other"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -294,14 +294,17 @@ const (
 	// FHRPGroupProtocolVrrp3 captures enum value "vrrp3"
 	FHRPGroupProtocolVrrp3 string = "vrrp3"
 
+	// FHRPGroupProtocolCarp captures enum value "carp"
+	FHRPGroupProtocolCarp string = "carp"
+
+	// FHRPGroupProtocolClusterxl captures enum value "clusterxl"
+	FHRPGroupProtocolClusterxl string = "clusterxl"
+
 	// FHRPGroupProtocolHsrp captures enum value "hsrp"
 	FHRPGroupProtocolHsrp string = "hsrp"
 
 	// FHRPGroupProtocolGlbp captures enum value "glbp"
 	FHRPGroupProtocolGlbp string = "glbp"
-
-	// FHRPGroupProtocolCarp captures enum value "carp"
-	FHRPGroupProtocolCarp string = "carp"
 
 	// FHRPGroupProtocolOther captures enum value "other"
 	FHRPGroupProtocolOther string = "other"
@@ -405,7 +408,7 @@ func (m *FHRPGroup) ContextValidate(ctx context.Context, formats strfmt.Registry
 
 func (m *FHRPGroup) contextValidateCreated(ctx context.Context, formats strfmt.Registry) error {
 
-	if err := validate.ReadOnly(ctx, "created", "body", strfmt.Date(m.Created)); err != nil {
+	if err := validate.ReadOnly(ctx, "created", "body", strfmt.DateTime(m.Created)); err != nil {
 		return err
 	}
 

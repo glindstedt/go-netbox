@@ -45,13 +45,13 @@ type NestedFHRPGroup struct {
 	// Minimum: 0
 	GroupID *int64 `json:"group_id"`
 
-	// Id
+	// ID
 	// Read Only: true
 	ID int64 `json:"id,omitempty"`
 
 	// Protocol
 	// Required: true
-	// Enum: [vrrp2 vrrp3 hsrp glbp carp other]
+	// Enum: [vrrp2 vrrp3 carp clusterxl hsrp glbp other]
 	Protocol *string `json:"protocol"`
 
 	// Url
@@ -103,7 +103,7 @@ var nestedFHRPGroupTypeProtocolPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["vrrp2","vrrp3","hsrp","glbp","carp","other"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["vrrp2","vrrp3","carp","clusterxl","hsrp","glbp","other"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -119,14 +119,17 @@ const (
 	// NestedFHRPGroupProtocolVrrp3 captures enum value "vrrp3"
 	NestedFHRPGroupProtocolVrrp3 string = "vrrp3"
 
+	// NestedFHRPGroupProtocolCarp captures enum value "carp"
+	NestedFHRPGroupProtocolCarp string = "carp"
+
+	// NestedFHRPGroupProtocolClusterxl captures enum value "clusterxl"
+	NestedFHRPGroupProtocolClusterxl string = "clusterxl"
+
 	// NestedFHRPGroupProtocolHsrp captures enum value "hsrp"
 	NestedFHRPGroupProtocolHsrp string = "hsrp"
 
 	// NestedFHRPGroupProtocolGlbp captures enum value "glbp"
 	NestedFHRPGroupProtocolGlbp string = "glbp"
-
-	// NestedFHRPGroupProtocolCarp captures enum value "carp"
-	NestedFHRPGroupProtocolCarp string = "carp"
 
 	// NestedFHRPGroupProtocolOther captures enum value "other"
 	NestedFHRPGroupProtocolOther string = "other"

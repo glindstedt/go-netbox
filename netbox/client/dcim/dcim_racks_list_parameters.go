@@ -78,9 +78,6 @@ type DcimRacksListParams struct {
 	// AssetTag.
 	AssetTag *string
 
-	// AssetTagEmpty.
-	AssetTagEmpty *string
-
 	// AssetTagIc.
 	AssetTagIc *string
 
@@ -134,9 +131,6 @@ type DcimRacksListParams struct {
 
 	// FacilityID.
 	FacilityID *string
-
-	// FacilityIDEmpty.
-	FacilityIDEmpty *string
 
 	// FacilityIDIc.
 	FacilityIDIc *string
@@ -212,9 +206,6 @@ type DcimRacksListParams struct {
 
 	// Name.
 	Name *string
-
-	// NameEmpty.
-	NameEmpty *string
 
 	// NameIc.
 	NameIc *string
@@ -475,17 +466,6 @@ func (o *DcimRacksListParams) SetAssetTag(assetTag *string) {
 	o.AssetTag = assetTag
 }
 
-// WithAssetTagEmpty adds the assetTagEmpty to the dcim racks list params
-func (o *DcimRacksListParams) WithAssetTagEmpty(assetTagEmpty *string) *DcimRacksListParams {
-	o.SetAssetTagEmpty(assetTagEmpty)
-	return o
-}
-
-// SetAssetTagEmpty adds the assetTagEmpty to the dcim racks list params
-func (o *DcimRacksListParams) SetAssetTagEmpty(assetTagEmpty *string) {
-	o.AssetTagEmpty = assetTagEmpty
-}
-
 // WithAssetTagIc adds the assetTagIc to the dcim racks list params
 func (o *DcimRacksListParams) WithAssetTagIc(assetTagIc *string) *DcimRacksListParams {
 	o.SetAssetTagIc(assetTagIc)
@@ -682,17 +662,6 @@ func (o *DcimRacksListParams) WithFacilityID(facilityID *string) *DcimRacksListP
 // SetFacilityID adds the facilityId to the dcim racks list params
 func (o *DcimRacksListParams) SetFacilityID(facilityID *string) {
 	o.FacilityID = facilityID
-}
-
-// WithFacilityIDEmpty adds the facilityIDEmpty to the dcim racks list params
-func (o *DcimRacksListParams) WithFacilityIDEmpty(facilityIDEmpty *string) *DcimRacksListParams {
-	o.SetFacilityIDEmpty(facilityIDEmpty)
-	return o
-}
-
-// SetFacilityIDEmpty adds the facilityIdEmpty to the dcim racks list params
-func (o *DcimRacksListParams) SetFacilityIDEmpty(facilityIDEmpty *string) {
-	o.FacilityIDEmpty = facilityIDEmpty
 }
 
 // WithFacilityIDIc adds the facilityIDIc to the dcim racks list params
@@ -957,17 +926,6 @@ func (o *DcimRacksListParams) WithName(name *string) *DcimRacksListParams {
 // SetName adds the name to the dcim racks list params
 func (o *DcimRacksListParams) SetName(name *string) {
 	o.Name = name
-}
-
-// WithNameEmpty adds the nameEmpty to the dcim racks list params
-func (o *DcimRacksListParams) WithNameEmpty(nameEmpty *string) *DcimRacksListParams {
-	o.SetNameEmpty(nameEmpty)
-	return o
-}
-
-// SetNameEmpty adds the nameEmpty to the dcim racks list params
-func (o *DcimRacksListParams) SetNameEmpty(nameEmpty *string) {
-	o.NameEmpty = nameEmpty
 }
 
 // WithNameIc adds the nameIc to the dcim racks list params
@@ -1699,23 +1657,6 @@ func (o *DcimRacksListParams) WriteToRequest(r runtime.ClientRequest, reg strfmt
 		}
 	}
 
-	if o.AssetTagEmpty != nil {
-
-		// query param asset_tag__empty
-		var qrAssetTagEmpty string
-
-		if o.AssetTagEmpty != nil {
-			qrAssetTagEmpty = *o.AssetTagEmpty
-		}
-		qAssetTagEmpty := qrAssetTagEmpty
-		if qAssetTagEmpty != "" {
-
-			if err := r.SetQueryParam("asset_tag__empty", qAssetTagEmpty); err != nil {
-				return err
-			}
-		}
-	}
-
 	if o.AssetTagIc != nil {
 
 		// query param asset_tag__ic
@@ -2017,23 +1958,6 @@ func (o *DcimRacksListParams) WriteToRequest(r runtime.ClientRequest, reg strfmt
 		if qFacilityID != "" {
 
 			if err := r.SetQueryParam("facility_id", qFacilityID); err != nil {
-				return err
-			}
-		}
-	}
-
-	if o.FacilityIDEmpty != nil {
-
-		// query param facility_id__empty
-		var qrFacilityIDEmpty string
-
-		if o.FacilityIDEmpty != nil {
-			qrFacilityIDEmpty = *o.FacilityIDEmpty
-		}
-		qFacilityIDEmpty := qrFacilityIDEmpty
-		if qFacilityIDEmpty != "" {
-
-			if err := r.SetQueryParam("facility_id__empty", qFacilityIDEmpty); err != nil {
 				return err
 			}
 		}
@@ -2442,23 +2366,6 @@ func (o *DcimRacksListParams) WriteToRequest(r runtime.ClientRequest, reg strfmt
 		if qName != "" {
 
 			if err := r.SetQueryParam("name", qName); err != nil {
-				return err
-			}
-		}
-	}
-
-	if o.NameEmpty != nil {
-
-		// query param name__empty
-		var qrNameEmpty string
-
-		if o.NameEmpty != nil {
-			qrNameEmpty = *o.NameEmpty
-		}
-		qNameEmpty := qrNameEmpty
-		if qNameEmpty != "" {
-
-			if err := r.SetQueryParam("name__empty", qNameEmpty); err != nil {
 				return err
 			}
 		}

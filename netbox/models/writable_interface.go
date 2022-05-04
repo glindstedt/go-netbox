@@ -72,8 +72,8 @@ type WritableInterface struct {
 
 	// Created
 	// Read Only: true
-	// Format: date
-	Created strfmt.Date `json:"created,omitempty"`
+	// Format: date-time
+	Created strfmt.DateTime `json:"created,omitempty"`
 
 	// Custom fields
 	CustomFields interface{} `json:"custom_fields,omitempty"`
@@ -90,10 +90,14 @@ type WritableInterface struct {
 	// Read Only: true
 	Display string `json:"display,omitempty"`
 
+	// Duplex
+	// Enum: [half full auto]
+	Duplex *string `json:"duplex,omitempty"`
+
 	// Enabled
 	Enabled bool `json:"enabled,omitempty"`
 
-	// Id
+	// ID
 	// Read Only: true
 	ID int64 `json:"id,omitempty"`
 
@@ -140,6 +144,9 @@ type WritableInterface struct {
 	// Enum: [access tagged tagged-all]
 	Mode string `json:"mode,omitempty"`
 
+	// Module
+	Module *int64 `json:"module,omitempty"`
+
 	// MTU
 	// Maximum: 65536
 	// Minimum: 1
@@ -168,6 +175,11 @@ type WritableInterface struct {
 	// Enum: [ap station]
 	RfRole string `json:"rf_role,omitempty"`
 
+	// Speed
+	// Maximum: 2.147483647e+09
+	// Minimum: 0
+	Speed *int64 `json:"speed,omitempty"`
+
 	// tagged vlans
 	// Unique: true
 	TaggedVlans []int64 `json:"tagged_vlans"`
@@ -192,6 +204,9 @@ type WritableInterface struct {
 	// Read Only: true
 	// Format: uri
 	URL strfmt.URI `json:"url,omitempty"`
+
+	// VRF
+	Vrf *int64 `json:"vrf,omitempty"`
 
 	// wireless lans
 	// Unique: true
@@ -226,6 +241,10 @@ func (m *WritableInterface) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateDuplex(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateLabel(formats); err != nil {
 		res = append(res, err)
 	}
@@ -251,6 +270,10 @@ func (m *WritableInterface) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateRfRole(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSpeed(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -306,7 +329,7 @@ func (m *WritableInterface) validateCreated(formats strfmt.Registry) error {
 		return nil
 	}
 
-	if err := validate.FormatOf("created", "body", "date", m.Created.String(), formats); err != nil {
+	if err := validate.FormatOf("created", "body", "date-time", m.Created.String(), formats); err != nil {
 		return err
 	}
 
@@ -328,6 +351,51 @@ func (m *WritableInterface) validateDescription(formats strfmt.Registry) error {
 func (m *WritableInterface) validateDevice(formats strfmt.Registry) error {
 
 	if err := validate.Required("device", "body", m.Device); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+var writableInterfaceTypeDuplexPropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["half","full","auto"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		writableInterfaceTypeDuplexPropEnum = append(writableInterfaceTypeDuplexPropEnum, v)
+	}
+}
+
+const (
+
+	// WritableInterfaceDuplexHalf captures enum value "half"
+	WritableInterfaceDuplexHalf string = "half"
+
+	// WritableInterfaceDuplexFull captures enum value "full"
+	WritableInterfaceDuplexFull string = "full"
+
+	// WritableInterfaceDuplexAuto captures enum value "auto"
+	WritableInterfaceDuplexAuto string = "auto"
+)
+
+// prop value enum
+func (m *WritableInterface) validateDuplexEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, writableInterfaceTypeDuplexPropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *WritableInterface) validateDuplex(formats strfmt.Registry) error {
+	if swag.IsZero(m.Duplex) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateDuplexEnum("duplex", "body", *m.Duplex); err != nil {
 		return err
 	}
 
@@ -1105,6 +1173,22 @@ func (m *WritableInterface) validateRfRole(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *WritableInterface) validateSpeed(formats strfmt.Registry) error {
+	if swag.IsZero(m.Speed) { // not required
+		return nil
+	}
+
+	if err := validate.MinimumInt("speed", "body", *m.Speed, 0, false); err != nil {
+		return err
+	}
+
+	if err := validate.MaximumInt("speed", "body", *m.Speed, 2.147483647e+09, false); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *WritableInterface) validateTaggedVlans(formats strfmt.Registry) error {
 	if swag.IsZero(m.TaggedVlans) { // not required
 		return nil
@@ -1597,7 +1681,7 @@ func (m *WritableInterface) contextValidateCountIpaddresses(ctx context.Context,
 
 func (m *WritableInterface) contextValidateCreated(ctx context.Context, formats strfmt.Registry) error {
 
-	if err := validate.ReadOnly(ctx, "created", "body", strfmt.Date(m.Created)); err != nil {
+	if err := validate.ReadOnly(ctx, "created", "body", strfmt.DateTime(m.Created)); err != nil {
 		return err
 	}
 

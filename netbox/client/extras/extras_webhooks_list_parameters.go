@@ -78,9 +78,6 @@ type ExtrasWebhooksListParams struct {
 	// CaFilePath.
 	CaFilePath *string
 
-	// CaFilePathEmpty.
-	CaFilePathEmpty *string
-
 	// CaFilePathIc.
 	CaFilePathIc *string
 
@@ -144,9 +141,6 @@ type ExtrasWebhooksListParams struct {
 	// HTTPContentType.
 	HTTPContentType *string
 
-	// HTTPContentTypeEmpty.
-	HTTPContentTypeEmpty *string
-
 	// HTTPContentTypeIc.
 	HTTPContentTypeIc *string
 
@@ -207,9 +201,6 @@ type ExtrasWebhooksListParams struct {
 	// Name.
 	Name *string
 
-	// NameEmpty.
-	NameEmpty *string
-
 	// NameIc.
 	NameIc *string
 
@@ -246,9 +237,6 @@ type ExtrasWebhooksListParams struct {
 	// PayloadURL.
 	PayloadURL *string
 
-	// PayloadURLEmpty.
-	PayloadURLEmpty *string
-
 	// PayloadURLIc.
 	PayloadURLIc *string
 
@@ -281,9 +269,6 @@ type ExtrasWebhooksListParams struct {
 
 	// Secret.
 	Secret *string
-
-	// SecretEmpty.
-	SecretEmpty *string
 
 	// SecretIc.
 	SecretIc *string
@@ -386,17 +371,6 @@ func (o *ExtrasWebhooksListParams) WithCaFilePath(caFilePath *string) *ExtrasWeb
 // SetCaFilePath adds the caFilePath to the extras webhooks list params
 func (o *ExtrasWebhooksListParams) SetCaFilePath(caFilePath *string) {
 	o.CaFilePath = caFilePath
-}
-
-// WithCaFilePathEmpty adds the caFilePathEmpty to the extras webhooks list params
-func (o *ExtrasWebhooksListParams) WithCaFilePathEmpty(caFilePathEmpty *string) *ExtrasWebhooksListParams {
-	o.SetCaFilePathEmpty(caFilePathEmpty)
-	return o
-}
-
-// SetCaFilePathEmpty adds the caFilePathEmpty to the extras webhooks list params
-func (o *ExtrasWebhooksListParams) SetCaFilePathEmpty(caFilePathEmpty *string) {
-	o.CaFilePathEmpty = caFilePathEmpty
 }
 
 // WithCaFilePathIc adds the caFilePathIc to the extras webhooks list params
@@ -630,17 +604,6 @@ func (o *ExtrasWebhooksListParams) SetHTTPContentType(hTTPContentType *string) {
 	o.HTTPContentType = hTTPContentType
 }
 
-// WithHTTPContentTypeEmpty adds the hTTPContentTypeEmpty to the extras webhooks list params
-func (o *ExtrasWebhooksListParams) WithHTTPContentTypeEmpty(hTTPContentTypeEmpty *string) *ExtrasWebhooksListParams {
-	o.SetHTTPContentTypeEmpty(hTTPContentTypeEmpty)
-	return o
-}
-
-// SetHTTPContentTypeEmpty adds the httpContentTypeEmpty to the extras webhooks list params
-func (o *ExtrasWebhooksListParams) SetHTTPContentTypeEmpty(hTTPContentTypeEmpty *string) {
-	o.HTTPContentTypeEmpty = hTTPContentTypeEmpty
-}
-
 // WithHTTPContentTypeIc adds the hTTPContentTypeIc to the extras webhooks list params
 func (o *ExtrasWebhooksListParams) WithHTTPContentTypeIc(hTTPContentTypeIc *string) *ExtrasWebhooksListParams {
 	o.SetHTTPContentTypeIc(hTTPContentTypeIc)
@@ -850,17 +813,6 @@ func (o *ExtrasWebhooksListParams) SetName(name *string) {
 	o.Name = name
 }
 
-// WithNameEmpty adds the nameEmpty to the extras webhooks list params
-func (o *ExtrasWebhooksListParams) WithNameEmpty(nameEmpty *string) *ExtrasWebhooksListParams {
-	o.SetNameEmpty(nameEmpty)
-	return o
-}
-
-// SetNameEmpty adds the nameEmpty to the extras webhooks list params
-func (o *ExtrasWebhooksListParams) SetNameEmpty(nameEmpty *string) {
-	o.NameEmpty = nameEmpty
-}
-
 // WithNameIc adds the nameIc to the extras webhooks list params
 func (o *ExtrasWebhooksListParams) WithNameIc(nameIc *string) *ExtrasWebhooksListParams {
 	o.SetNameIc(nameIc)
@@ -982,17 +934,6 @@ func (o *ExtrasWebhooksListParams) SetPayloadURL(payloadURL *string) {
 	o.PayloadURL = payloadURL
 }
 
-// WithPayloadURLEmpty adds the payloadURLEmpty to the extras webhooks list params
-func (o *ExtrasWebhooksListParams) WithPayloadURLEmpty(payloadURLEmpty *string) *ExtrasWebhooksListParams {
-	o.SetPayloadURLEmpty(payloadURLEmpty)
-	return o
-}
-
-// SetPayloadURLEmpty adds the payloadUrlEmpty to the extras webhooks list params
-func (o *ExtrasWebhooksListParams) SetPayloadURLEmpty(payloadURLEmpty *string) {
-	o.PayloadURLEmpty = payloadURLEmpty
-}
-
 // WithPayloadURLIc adds the payloadURLIc to the extras webhooks list params
 func (o *ExtrasWebhooksListParams) WithPayloadURLIc(payloadURLIc *string) *ExtrasWebhooksListParams {
 	o.SetPayloadURLIc(payloadURLIc)
@@ -1112,17 +1053,6 @@ func (o *ExtrasWebhooksListParams) WithSecret(secret *string) *ExtrasWebhooksLis
 // SetSecret adds the secret to the extras webhooks list params
 func (o *ExtrasWebhooksListParams) SetSecret(secret *string) {
 	o.Secret = secret
-}
-
-// WithSecretEmpty adds the secretEmpty to the extras webhooks list params
-func (o *ExtrasWebhooksListParams) WithSecretEmpty(secretEmpty *string) *ExtrasWebhooksListParams {
-	o.SetSecretEmpty(secretEmpty)
-	return o
-}
-
-// SetSecretEmpty adds the secretEmpty to the extras webhooks list params
-func (o *ExtrasWebhooksListParams) SetSecretEmpty(secretEmpty *string) {
-	o.SecretEmpty = secretEmpty
 }
 
 // WithSecretIc adds the secretIc to the extras webhooks list params
@@ -1288,23 +1218,6 @@ func (o *ExtrasWebhooksListParams) WriteToRequest(r runtime.ClientRequest, reg s
 		if qCaFilePath != "" {
 
 			if err := r.SetQueryParam("ca_file_path", qCaFilePath); err != nil {
-				return err
-			}
-		}
-	}
-
-	if o.CaFilePathEmpty != nil {
-
-		// query param ca_file_path__empty
-		var qrCaFilePathEmpty string
-
-		if o.CaFilePathEmpty != nil {
-			qrCaFilePathEmpty = *o.CaFilePathEmpty
-		}
-		qCaFilePathEmpty := qrCaFilePathEmpty
-		if qCaFilePathEmpty != "" {
-
-			if err := r.SetQueryParam("ca_file_path__empty", qCaFilePathEmpty); err != nil {
 				return err
 			}
 		}
@@ -1667,23 +1580,6 @@ func (o *ExtrasWebhooksListParams) WriteToRequest(r runtime.ClientRequest, reg s
 		}
 	}
 
-	if o.HTTPContentTypeEmpty != nil {
-
-		// query param http_content_type__empty
-		var qrHTTPContentTypeEmpty string
-
-		if o.HTTPContentTypeEmpty != nil {
-			qrHTTPContentTypeEmpty = *o.HTTPContentTypeEmpty
-		}
-		qHTTPContentTypeEmpty := qrHTTPContentTypeEmpty
-		if qHTTPContentTypeEmpty != "" {
-
-			if err := r.SetQueryParam("http_content_type__empty", qHTTPContentTypeEmpty); err != nil {
-				return err
-			}
-		}
-	}
-
 	if o.HTTPContentTypeIc != nil {
 
 		// query param http_content_type__ic
@@ -2007,23 +1903,6 @@ func (o *ExtrasWebhooksListParams) WriteToRequest(r runtime.ClientRequest, reg s
 		}
 	}
 
-	if o.NameEmpty != nil {
-
-		// query param name__empty
-		var qrNameEmpty string
-
-		if o.NameEmpty != nil {
-			qrNameEmpty = *o.NameEmpty
-		}
-		qNameEmpty := qrNameEmpty
-		if qNameEmpty != "" {
-
-			if err := r.SetQueryParam("name__empty", qNameEmpty); err != nil {
-				return err
-			}
-		}
-	}
-
 	if o.NameIc != nil {
 
 		// query param name__ic
@@ -2211,23 +2090,6 @@ func (o *ExtrasWebhooksListParams) WriteToRequest(r runtime.ClientRequest, reg s
 		}
 	}
 
-	if o.PayloadURLEmpty != nil {
-
-		// query param payload_url__empty
-		var qrPayloadURLEmpty string
-
-		if o.PayloadURLEmpty != nil {
-			qrPayloadURLEmpty = *o.PayloadURLEmpty
-		}
-		qPayloadURLEmpty := qrPayloadURLEmpty
-		if qPayloadURLEmpty != "" {
-
-			if err := r.SetQueryParam("payload_url__empty", qPayloadURLEmpty); err != nil {
-				return err
-			}
-		}
-	}
-
 	if o.PayloadURLIc != nil {
 
 		// query param payload_url__ic
@@ -2410,23 +2272,6 @@ func (o *ExtrasWebhooksListParams) WriteToRequest(r runtime.ClientRequest, reg s
 		if qSecret != "" {
 
 			if err := r.SetQueryParam("secret", qSecret); err != nil {
-				return err
-			}
-		}
-	}
-
-	if o.SecretEmpty != nil {
-
-		// query param secret__empty
-		var qrSecretEmpty string
-
-		if o.SecretEmpty != nil {
-			qrSecretEmpty = *o.SecretEmpty
-		}
-		qSecretEmpty := qrSecretEmpty
-		if qSecretEmpty != "" {
-
-			if err := r.SetQueryParam("secret__empty", qSecretEmpty); err != nil {
 				return err
 			}
 		}

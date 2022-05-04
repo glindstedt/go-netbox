@@ -99,9 +99,6 @@ type DcimManufacturersListParams struct {
 	// Description.
 	Description *string
 
-	// DescriptionEmpty.
-	DescriptionEmpty *string
-
 	// DescriptionIc.
 	DescriptionIc *string
 
@@ -165,9 +162,6 @@ type DcimManufacturersListParams struct {
 	// Name.
 	Name *string
 
-	// NameEmpty.
-	NameEmpty *string
-
 	// NameIc.
 	NameIc *string
 
@@ -206,9 +200,6 @@ type DcimManufacturersListParams struct {
 
 	// Slug.
 	Slug *string
-
-	// SlugEmpty.
-	SlugEmpty *string
 
 	// SlugIc.
 	SlugIc *string
@@ -382,17 +373,6 @@ func (o *DcimManufacturersListParams) WithDescription(description *string) *Dcim
 // SetDescription adds the description to the dcim manufacturers list params
 func (o *DcimManufacturersListParams) SetDescription(description *string) {
 	o.Description = description
-}
-
-// WithDescriptionEmpty adds the descriptionEmpty to the dcim manufacturers list params
-func (o *DcimManufacturersListParams) WithDescriptionEmpty(descriptionEmpty *string) *DcimManufacturersListParams {
-	o.SetDescriptionEmpty(descriptionEmpty)
-	return o
-}
-
-// SetDescriptionEmpty adds the descriptionEmpty to the dcim manufacturers list params
-func (o *DcimManufacturersListParams) SetDescriptionEmpty(descriptionEmpty *string) {
-	o.DescriptionEmpty = descriptionEmpty
 }
 
 // WithDescriptionIc adds the descriptionIc to the dcim manufacturers list params
@@ -615,17 +595,6 @@ func (o *DcimManufacturersListParams) SetName(name *string) {
 	o.Name = name
 }
 
-// WithNameEmpty adds the nameEmpty to the dcim manufacturers list params
-func (o *DcimManufacturersListParams) WithNameEmpty(nameEmpty *string) *DcimManufacturersListParams {
-	o.SetNameEmpty(nameEmpty)
-	return o
-}
-
-// SetNameEmpty adds the nameEmpty to the dcim manufacturers list params
-func (o *DcimManufacturersListParams) SetNameEmpty(nameEmpty *string) {
-	o.NameEmpty = nameEmpty
-}
-
 // WithNameIc adds the nameIc to the dcim manufacturers list params
 func (o *DcimManufacturersListParams) WithNameIc(nameIc *string) *DcimManufacturersListParams {
 	o.SetNameIc(nameIc)
@@ -756,17 +725,6 @@ func (o *DcimManufacturersListParams) WithSlug(slug *string) *DcimManufacturersL
 // SetSlug adds the slug to the dcim manufacturers list params
 func (o *DcimManufacturersListParams) SetSlug(slug *string) {
 	o.Slug = slug
-}
-
-// WithSlugEmpty adds the slugEmpty to the dcim manufacturers list params
-func (o *DcimManufacturersListParams) WithSlugEmpty(slugEmpty *string) *DcimManufacturersListParams {
-	o.SetSlugEmpty(slugEmpty)
-	return o
-}
-
-// SetSlugEmpty adds the slugEmpty to the dcim manufacturers list params
-func (o *DcimManufacturersListParams) SetSlugEmpty(slugEmpty *string) {
-	o.SlugEmpty = slugEmpty
 }
 
 // WithSlugIc adds the slugIc to the dcim manufacturers list params
@@ -1029,23 +987,6 @@ func (o *DcimManufacturersListParams) WriteToRequest(r runtime.ClientRequest, re
 		if qDescription != "" {
 
 			if err := r.SetQueryParam("description", qDescription); err != nil {
-				return err
-			}
-		}
-	}
-
-	if o.DescriptionEmpty != nil {
-
-		// query param description__empty
-		var qrDescriptionEmpty string
-
-		if o.DescriptionEmpty != nil {
-			qrDescriptionEmpty = *o.DescriptionEmpty
-		}
-		qDescriptionEmpty := qrDescriptionEmpty
-		if qDescriptionEmpty != "" {
-
-			if err := r.SetQueryParam("description__empty", qDescriptionEmpty); err != nil {
 				return err
 			}
 		}
@@ -1391,23 +1332,6 @@ func (o *DcimManufacturersListParams) WriteToRequest(r runtime.ClientRequest, re
 		}
 	}
 
-	if o.NameEmpty != nil {
-
-		// query param name__empty
-		var qrNameEmpty string
-
-		if o.NameEmpty != nil {
-			qrNameEmpty = *o.NameEmpty
-		}
-		qNameEmpty := qrNameEmpty
-		if qNameEmpty != "" {
-
-			if err := r.SetQueryParam("name__empty", qNameEmpty); err != nil {
-				return err
-			}
-		}
-	}
-
 	if o.NameIc != nil {
 
 		// query param name__ic
@@ -1607,23 +1531,6 @@ func (o *DcimManufacturersListParams) WriteToRequest(r runtime.ClientRequest, re
 		if qSlug != "" {
 
 			if err := r.SetQueryParam("slug", qSlug); err != nil {
-				return err
-			}
-		}
-	}
-
-	if o.SlugEmpty != nil {
-
-		// query param slug__empty
-		var qrSlugEmpty string
-
-		if o.SlugEmpty != nil {
-			qrSlugEmpty = *o.SlugEmpty
-		}
-		qSlugEmpty := qrSlugEmpty
-		if qSlugEmpty != "" {
-
-			if err := r.SetQueryParam("slug__empty", qSlugEmpty); err != nil {
 				return err
 			}
 		}

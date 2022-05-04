@@ -50,8 +50,8 @@ type RearPort struct {
 
 	// Created
 	// Read Only: true
-	// Format: date
-	Created strfmt.Date `json:"created,omitempty"`
+	// Format: date-time
+	Created strfmt.DateTime `json:"created,omitempty"`
 
 	// Custom fields
 	CustomFields interface{} `json:"custom_fields,omitempty"`
@@ -68,7 +68,7 @@ type RearPort struct {
 	// Read Only: true
 	Display string `json:"display,omitempty"`
 
-	// Id
+	// ID
 	// Read Only: true
 	ID int64 `json:"id,omitempty"`
 
@@ -99,6 +99,9 @@ type RearPort struct {
 	//
 	// Treat as if a cable is connected
 	MarkConnected bool `json:"mark_connected,omitempty"`
+
+	// module
+	Module *ComponentNestedModule `json:"module,omitempty"`
 
 	// Name
 	// Required: true
@@ -153,6 +156,10 @@ func (m *RearPort) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateLastUpdated(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateModule(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -220,7 +227,7 @@ func (m *RearPort) validateCreated(formats strfmt.Registry) error {
 		return nil
 	}
 
-	if err := validate.FormatOf("created", "body", "date", m.Created.String(), formats); err != nil {
+	if err := validate.FormatOf("created", "body", "date-time", m.Created.String(), formats); err != nil {
 		return err
 	}
 
@@ -276,6 +283,23 @@ func (m *RearPort) validateLastUpdated(formats strfmt.Registry) error {
 
 	if err := validate.FormatOf("last_updated", "body", "date-time", m.LastUpdated.String(), formats); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *RearPort) validateModule(formats strfmt.Registry) error {
+	if swag.IsZero(m.Module) { // not required
+		return nil
+	}
+
+	if m.Module != nil {
+		if err := m.Module.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("module")
+			}
+			return err
+		}
 	}
 
 	return nil
@@ -408,6 +432,10 @@ func (m *RearPort) ContextValidate(ctx context.Context, formats strfmt.Registry)
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateModule(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateTags(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -451,7 +479,7 @@ func (m *RearPort) contextValidateCable(ctx context.Context, formats strfmt.Regi
 
 func (m *RearPort) contextValidateCreated(ctx context.Context, formats strfmt.Registry) error {
 
-	if err := validate.ReadOnly(ctx, "created", "body", strfmt.Date(m.Created)); err != nil {
+	if err := validate.ReadOnly(ctx, "created", "body", strfmt.DateTime(m.Created)); err != nil {
 		return err
 	}
 
@@ -508,6 +536,20 @@ func (m *RearPort) contextValidateLinkPeerType(ctx context.Context, formats strf
 
 	if err := validate.ReadOnly(ctx, "link_peer_type", "body", string(m.LinkPeerType)); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *RearPort) contextValidateModule(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Module != nil {
+		if err := m.Module.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("module")
+			}
+			return err
+		}
 	}
 
 	return nil

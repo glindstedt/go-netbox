@@ -99,9 +99,6 @@ type DcimRegionsListParams struct {
 	// Description.
 	Description *string
 
-	// DescriptionEmpty.
-	DescriptionEmpty *string
-
 	// DescriptionIc.
 	DescriptionIc *string
 
@@ -165,9 +162,6 @@ type DcimRegionsListParams struct {
 	// Name.
 	Name *string
 
-	// NameEmpty.
-	NameEmpty *string
-
 	// NameIc.
 	NameIc *string
 
@@ -218,9 +212,6 @@ type DcimRegionsListParams struct {
 
 	// Slug.
 	Slug *string
-
-	// SlugEmpty.
-	SlugEmpty *string
 
 	// SlugIc.
 	SlugIc *string
@@ -394,17 +385,6 @@ func (o *DcimRegionsListParams) WithDescription(description *string) *DcimRegion
 // SetDescription adds the description to the dcim regions list params
 func (o *DcimRegionsListParams) SetDescription(description *string) {
 	o.Description = description
-}
-
-// WithDescriptionEmpty adds the descriptionEmpty to the dcim regions list params
-func (o *DcimRegionsListParams) WithDescriptionEmpty(descriptionEmpty *string) *DcimRegionsListParams {
-	o.SetDescriptionEmpty(descriptionEmpty)
-	return o
-}
-
-// SetDescriptionEmpty adds the descriptionEmpty to the dcim regions list params
-func (o *DcimRegionsListParams) SetDescriptionEmpty(descriptionEmpty *string) {
-	o.DescriptionEmpty = descriptionEmpty
 }
 
 // WithDescriptionIc adds the descriptionIc to the dcim regions list params
@@ -627,17 +607,6 @@ func (o *DcimRegionsListParams) SetName(name *string) {
 	o.Name = name
 }
 
-// WithNameEmpty adds the nameEmpty to the dcim regions list params
-func (o *DcimRegionsListParams) WithNameEmpty(nameEmpty *string) *DcimRegionsListParams {
-	o.SetNameEmpty(nameEmpty)
-	return o
-}
-
-// SetNameEmpty adds the nameEmpty to the dcim regions list params
-func (o *DcimRegionsListParams) SetNameEmpty(nameEmpty *string) {
-	o.NameEmpty = nameEmpty
-}
-
 // WithNameIc adds the nameIc to the dcim regions list params
 func (o *DcimRegionsListParams) WithNameIc(nameIc *string) *DcimRegionsListParams {
 	o.SetNameIc(nameIc)
@@ -812,17 +781,6 @@ func (o *DcimRegionsListParams) WithSlug(slug *string) *DcimRegionsListParams {
 // SetSlug adds the slug to the dcim regions list params
 func (o *DcimRegionsListParams) SetSlug(slug *string) {
 	o.Slug = slug
-}
-
-// WithSlugEmpty adds the slugEmpty to the dcim regions list params
-func (o *DcimRegionsListParams) WithSlugEmpty(slugEmpty *string) *DcimRegionsListParams {
-	o.SetSlugEmpty(slugEmpty)
-	return o
-}
-
-// SetSlugEmpty adds the slugEmpty to the dcim regions list params
-func (o *DcimRegionsListParams) SetSlugEmpty(slugEmpty *string) {
-	o.SlugEmpty = slugEmpty
 }
 
 // WithSlugIc adds the slugIc to the dcim regions list params
@@ -1085,23 +1043,6 @@ func (o *DcimRegionsListParams) WriteToRequest(r runtime.ClientRequest, reg strf
 		if qDescription != "" {
 
 			if err := r.SetQueryParam("description", qDescription); err != nil {
-				return err
-			}
-		}
-	}
-
-	if o.DescriptionEmpty != nil {
-
-		// query param description__empty
-		var qrDescriptionEmpty string
-
-		if o.DescriptionEmpty != nil {
-			qrDescriptionEmpty = *o.DescriptionEmpty
-		}
-		qDescriptionEmpty := qrDescriptionEmpty
-		if qDescriptionEmpty != "" {
-
-			if err := r.SetQueryParam("description__empty", qDescriptionEmpty); err != nil {
 				return err
 			}
 		}
@@ -1447,23 +1388,6 @@ func (o *DcimRegionsListParams) WriteToRequest(r runtime.ClientRequest, reg strf
 		}
 	}
 
-	if o.NameEmpty != nil {
-
-		// query param name__empty
-		var qrNameEmpty string
-
-		if o.NameEmpty != nil {
-			qrNameEmpty = *o.NameEmpty
-		}
-		qNameEmpty := qrNameEmpty
-		if qNameEmpty != "" {
-
-			if err := r.SetQueryParam("name__empty", qNameEmpty); err != nil {
-				return err
-			}
-		}
-	}
-
 	if o.NameIc != nil {
 
 		// query param name__ic
@@ -1731,23 +1655,6 @@ func (o *DcimRegionsListParams) WriteToRequest(r runtime.ClientRequest, reg strf
 		if qSlug != "" {
 
 			if err := r.SetQueryParam("slug", qSlug); err != nil {
-				return err
-			}
-		}
-	}
-
-	if o.SlugEmpty != nil {
-
-		// query param slug__empty
-		var qrSlugEmpty string
-
-		if o.SlugEmpty != nil {
-			qrSlugEmpty = *o.SlugEmpty
-		}
-		qSlugEmpty := qrSlugEmpty
-		if qSlugEmpty != "" {
-
-			if err := r.SetQueryParam("slug__empty", qSlugEmpty); err != nil {
 				return err
 			}
 		}
